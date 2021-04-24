@@ -20,7 +20,10 @@ namespace GraphQLSample.Models
             personBuilder
                 .Property(x => x.LastName).IsRequired().HasMaxLength(50).IsUnicode(false);
 
-            personBuilder.HasData(new Person { Id = 1, FirstName = "Alberto", LastName = "Monteiro", Age = 31 });
+            for (short i = 1; i < 50; i++)
+            {
+                personBuilder.HasData(new Person { Id = i, FirstName = $"Alberto {i}", LastName = $"Monteiro {i}", Age = i });
+            }
         }
     }
 }
