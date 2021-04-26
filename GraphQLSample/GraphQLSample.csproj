@@ -6,14 +6,21 @@
 	</PropertyGroup>
 
 	<ItemGroup>
+	  <Compile Remove="Models\AppDbContext.cs" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Content Remove="Resources\SchemaExpirationConfig.json" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <EmbeddedResource Include="Resources\SchemaExpirationConfig.json" />
+	</ItemGroup>
+
+	<ItemGroup>
 		<PackageReference Include="HotChocolate.AspNetCore" Version="11.2.2" />
-		<PackageReference Include="HotChocolate.Data.EntityFramework" Version="11.2.2" />
-		<PackageReference Include="HotChocolate.Stitching" Version="11.2.2" />
-		<PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="5.0.5">
-			<PrivateAssets>all</PrivateAssets>
-			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-		</PackageReference>
-		<PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="5.0.5" />
+		<PackageReference Include="HotChocolate.Data.MongoDb" Version="11.2.2" />
+		<PackageReference Include="Microsoft.Extensions.Options" Version="3.1.14" />
 	</ItemGroup>
 
 </Project>

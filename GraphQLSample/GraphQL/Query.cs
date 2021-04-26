@@ -1,7 +1,7 @@
 ﻿using GraphQLSample.Models;
 using HotChocolate;
 using HotChocolate.Data;
-using System.Linq;
+using MongoDB.Driver;
 
 namespace GraphQLSample.GraphQL
 {
@@ -10,7 +10,7 @@ namespace GraphQLSample.GraphQL
         [ValidVersionFields]
         [UseFirstOrDefault]
         [UseProjection]
-        public IQueryable<Person> GetSpecificPerson(string name, [Service] AppDbContext appDbContext)
-            => appDbContext.Person.Where(x => x.FirstName == name).AsQueryable();
+        public IExecutable<Person> GetPerson(string name, [Service] IMongoCollection<Person> personCollection)
+            => personCollection.Find(x => x.FirstName == name).AsExecutable();
     }
 }

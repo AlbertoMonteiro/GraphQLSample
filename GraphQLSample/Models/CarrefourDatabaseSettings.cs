@@ -1,0 +1,9 @@
+﻿namespace GraphQLSample.Models
+{
+    public class CarrefourDatabaseSettings
+    {
+        public string PersonsCollectionName { get; set; }
+        public string ConnectionString { get; set; }
+        public string DatabaseName { get; set; }
+    }
+}
