@@ -20,16 +20,13 @@ namespace GraphQLSample
             var cs = configuration.GetSection("ConnectionStrings").GetValue<string>("Default");
             services.AddDbContext<AppDbContext>(c => c.UseSqlServer(cs));
 
-            services.AddGraphQLServer()
-                .AddQueryType<Query>()
+            services
+                .AddGraphQLServer()
                 .AddType<PersonType>()
-                .AddSorting()
-                .AddProjections()
-                .AddFiltering()
-                .SetPagingOptions(new HotChocolate.Types.Pagination.PagingOptions { MaxPageSize = 10, DefaultPageSize = 10, IncludeTotalCount = true });
+                .AddQueryType<Query>()
+                .AddProjections();
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())

@@ -2,7 +2,7 @@
 
 namespace GraphQLSample.Models
 {
-    public class Person
+    public class Person : IEntity
     {
         public long Id { get; set; }
         public DateTimeOffset Version { get; set; }

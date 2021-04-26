@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using System;
 
 namespace GraphQLSample.Models
 {
@@ -22,7 +23,7 @@ namespace GraphQLSample.Models
 
             for (short i = 1; i < 50; i++)
             {
-                personBuilder.HasData(new Person { Id = i, FirstName = $"Alberto {i}", LastName = $"Monteiro {i}", Age = i });
+                personBuilder.HasData(new Person { Id = i, FirstName = $"Alberto {i}", LastName = $"Monteiro {i}", Age = i, Version = DateTime.Today });
             }
         }
     }
